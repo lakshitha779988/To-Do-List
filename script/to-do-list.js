@@ -1,5 +1,12 @@
-const toDoArry=[];
+
+let toDoArry=[];
+
 let itemNo=0;
+toDoArry=JSON.parse(localStorage.getItem('toDoArry'));
+
+display();
+
+
 
 function add(){
     const toDoNameElement =document.getElementById('input');
@@ -13,13 +20,15 @@ function add(){
     console.log(toDoArry);
     toDoNameElement.value="";
     itemNo++;
+    localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
 }
 
 
 function display(){
+    
     let toDoHtlml ='';
-    for(let i =0; i<toDoArry.length; i++){
-        const toDo = toDoArry[i];
+    toDoArry.forEach(function(value,index){
+        const toDo = value;
         const name=toDo.name;
         const dueDate=toDo.dueDate;
         const html = 
@@ -39,13 +48,16 @@ function display(){
 
             <button onclick=
                      "
-                    toDoArry.splice(${i}, 1);
+                    toDoArry.splice(${index}, 1);
+                    localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
                     display();
         
                      " class="btn" id="btn2">Delete</button>
 </div>`;
         toDoHtlml +=html;
-    }
+
+    })
+ 
     console.log(toDoHtlml);
     document.querySelector(".content").innerHTML = toDoHtlml;
 }
