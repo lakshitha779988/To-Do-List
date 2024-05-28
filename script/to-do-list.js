@@ -18,11 +18,11 @@ function add(){
     console.log(toDoArry);
     toDoNameElement.value="";
     itemNo++;
-    // localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
+    localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
 }
-// toDoArry=JSON.parse(localStorage.getItem('toDoArry'));
+toDoArry=JSON.parse(localStorage.getItem('toDoArry'));
 
-// display();
+display();
 
 
 function display(){
@@ -50,7 +50,7 @@ function display(){
             <button onclick=
                      "
                     toDoArry.splice(${index}, 1);
-                    // localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
+                    localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
                     display();
         
                      " class="btn" id="btn2">Delete</button>
