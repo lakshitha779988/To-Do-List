@@ -2,9 +2,9 @@
 let toDoArry=[];
 
 let itemNo=0;
-toDoArry=JSON.parse(localStorage.getItem('toDoArry'));
 
-display();
+
+
 
 
 
@@ -22,6 +22,8 @@ function add(){
     itemNo++;
     localStorage.setItem('toDoArry',JSON.stringify(toDoArry));
 }
+toDoArry=JSON.parse(localStorage.getItem('toDoArry'));
+display();
 
 
 function display(){
